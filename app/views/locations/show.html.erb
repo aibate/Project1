@@ -1,0 +1,16 @@
+<h1><%= @location.address %></h1>
+<%= image_tag @location.image, :class => 'feature' %>
+<ul>
+    <li>Location:<%= @location.address %> </li>
+    <li>Harvest: <%= @location.harvest %></li>
+    <li>note: <%= @location.note %></li>
+</ul>
+<% if @current_user.id == @location.user_id %>
+
+<div class="controls">
+    <%= link_to "Edit location", edit_location_path %>
+
+
+</div>
+<% end %>
+

@@ -1,7 +1,39 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+User.destroy_all
+u1 = User.create :email => 'sam@gmail.com', :password => 'chicken', :admin => true
+u2 = User.create :email => 'naoki@gmail.com', :password => 'chicken'
+u3 = User.create :email => 'mika@gmail.com'
+puts "#{ User.count } users."
+
+
+Location.destroy_all
+l1 = Location.create :address => "18 Derby street, Caufield North, Victoria, 3010", :harvest => 'lemon', :image => 'https://judyunger.files.wordpress.com/2020/12/lemon-tree-back-fence-.jpg?w=640&h=480', :note => "we have too many lemon, feel free to take some."
+l2 = Location.create :address => "70-90 Koornang street, Carnegie, Victoria, 3025"
+l3 = Location.create :address => "Rippon Lea Estate, Rippon Lea, Victoria, 3021"
+puts "#{ Location.count } locations."
+
+Comment.destroy_all
+c1 = Comment.create :comment => "It was plenty lemons on the tree!"
+c2 = Comment.create :comment => 'the Butcher near the bay tree is very good shop'
+c3 = Comment.create :comment => "We had the pink pepercorn on our dinner."
+puts "#{ Comment.count } comments." 
+
+
+#Associations
+puts "Users and locations "
+u1.locations << l1
+u2.locations << l2
+u3.locations << l3
+
+puts "comments and locations"
+l1.comments << c1
+l2.comments << c2
+l3.comments << c3
+
+puts "comments and users"
+u1.comments << c1
+u2.comments << c2
+u3.comments << c3
+
+
+
+
