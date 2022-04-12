@@ -1,5 +1,7 @@
 <h1>Your locations</h1>
 
 
-<% @locations %>
+    <% @locations.each do |location| %> 
+        <%= link_to image_tag(location.image || "https://loremflickr.com/320/240/flower", :class => 'thumb'), location %>
+    <% end %>
 

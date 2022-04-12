@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2022_04_11_023041) do
   enable_extension "plpgsql"
 
   create_table "comments", force: :cascade do |t|
-    t.text "comment"
+    t.text "content"
     t.date "date"
     t.boolean "like"
     t.integer "location_id"

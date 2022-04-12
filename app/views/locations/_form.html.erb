@@ -2,11 +2,11 @@
     <%= f.label :address %>
     <%= f.text_field :address, :required => true %>
     <%= f.label :harvest %>
-    <%= f.text_field :harvest%>
+    <%= f.text_field :harvest,:required => true %>
     <%= f.label :image %>
-    <%=  f.text_field :image %>
+    <%=  f.text_field :image, :required => true %>
     <%= f.label :note %>
-    <%= f.text_field :note %>
+    <%= f.text_field :note, :required => true %>
 
 <%= f.submit %>
 <% end %>

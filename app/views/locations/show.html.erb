@@ -9,6 +9,7 @@
 
 <div class="controls">
     <%= link_to "Edit location", edit_location_path %>
+    <%= link_to "Deleter Location", @location, :method => 'delete', :data => {:confirm => "Are you sure?"}%>
 
 
 </div>

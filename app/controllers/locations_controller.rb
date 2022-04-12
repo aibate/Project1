@@ -2,7 +2,8 @@ class LocationsController < ApplicationController
   before_action :check_in_log
   
   def index
-    @location = Location.All
+    # @locations = Location.user_id.find @current_user.id
+    @locations = Location.where(user_id: @current_user.id)
   end
 
   def new
@@ -11,7 +12,7 @@ class LocationsController < ApplicationController
 
   def create
     location = Location.create location_params
-    @current_user.locations << location #assign owner 
+    @current_user.locations << location #assign user 
     # location = @current_user.locations.create location_params
     redirect_to location    #location_path params[:id] 
    
@@ -22,11 +23,13 @@ class LocationsController < ApplicationController
   end
 
   def edit
-    
+    @location = Location.find params[:id]
   end
-
+    
   def destroy
-
+    location = Location.find params[:id]
+    location.destroy
+    redirect_to locations_path
   end
 
   private

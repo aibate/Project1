@@ -4,3 +4,6 @@ body {
 .feature{
     max-height: 30em;
 }
+.thumb {
+    height: 12em;
+}
